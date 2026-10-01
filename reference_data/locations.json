@@ -1,0 +1,79 @@
+{
+    "districts": [
+        {
+            "name": "Bahawalpur",
+            "urdu": "بہاولپور",
+            "variants": [
+                "Bahawal Pur",
+                "BWP"
+            ],
+            "tehsils": [
+                "Bahawalpur City",
+                "Bahawalpur Saddar",
+                "Ahmadpur East",
+                "Hasilpur",
+                "Khairpur Tamewali",
+                "Yazman"
+            ]
+        },
+        {
+            "name": "Lahore",
+            "urdu": "لاہور",
+            "variants": [
+                "LHR",
+                "Lahor"
+            ],
+            "tehsils": [
+                "Lahore City",
+                "Lahore Cantt",
+                "Model Town",
+                "Raiwind",
+                "Shalimar"
+            ]
+        },
+        {
+            "name": "Multan",
+            "urdu": "ملتان",
+            "variants": [
+                "Multaan",
+                "Mulltan"
+            ],
+            "tehsils": [
+                "Multan City",
+                "Multan Saddar",
+                "Shujabad",
+                "Jalalpur Pirwala"
+            ]
+        },
+        {
+            "name": "Faisalabad",
+            "urdu": "فیصل آباد",
+            "variants": [
+                "Faisal Abad",
+                "FSD",
+                "Lyallpur"
+            ],
+            "tehsils": [
+                "Faisalabad City",
+                "Faisalabad Saddar",
+                "Jaranwala",
+                "Samundri",
+                "Tandlianwala",
+                "Chak Jhumra"
+            ]
+        },
+        {
+            "name": "Vehari",
+            "urdu": "وہاڑی",
+            "variants": [
+                "Vihari",
+                "Wehari"
+            ],
+            "tehsils": [
+                "Vehari",
+                "Burewala",
+                "Mailsi"
+            ]
+        }
+    ]
+}
