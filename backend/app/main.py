@@ -1,8 +1,7 @@
 """FastAPI application entry point."""
 
 from fastapi import FastAPI
-
-from backend.app.api.routes import health
+from backend.app.api.routes import health, sessions
 from backend.app.core.config import get_settings
 
 settings = get_settings()
@@ -16,4 +15,6 @@ app = FastAPI(
     version="0.1.0",
 )
 
+app.include_router(health.router)
+app.include_router(sessions.router)
 app.include_router(health.router)
