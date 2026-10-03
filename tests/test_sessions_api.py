@@ -89,3 +89,27 @@ def test_unknown_session_returns_404(client) -> None:
     response = client.get(f"/sessions/{uuid.uuid4()}")
 
     assert response.status_code == 404
+
+def test_records_endpoint_returns_rows_in_order(client) -> None:
+    created = client.post("/sessions/upload", files=_csv_upload(ROWS)).json()
+
+    response = client.get(f"/sessions/{created['id']}/records?limit=10")
+
+    assert response.status_code == 200
+    records = response.json()
+    assert [r["row_number"] for r in records] == [1, 2]
+    assert records[0]["original_data"]["phone"] == "0300-1234567"
+
+
+def test_records_endpoint_rejects_oversized_limit(client) -> None:
+    created = client.post("/sessions/upload", files=_csv_upload(ROWS)).json()
+
+    response = client.get(f"/sessions/{created['id']}/records?limit=5000")
+
+    assert response.status_code == 422
+
+
+def test_records_for_unknown_session_returns_404(client) -> None:
+    response = client.get(f"/sessions/{uuid.uuid4()}/records")
+
+    assert response.status_code == 404

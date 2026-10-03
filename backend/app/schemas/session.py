@@ -1,6 +1,7 @@
 """API response schemas for processing sessions."""
 
 import uuid
+from typing import Any
 from datetime import datetime
 
 from pydantic import BaseModel, ConfigDict
@@ -22,3 +23,10 @@ class SessionSummary(BaseModel):
     columns: list[str]
     status: SessionStatus
     created_at: datetime
+class RecordPreview(BaseModel):
+    """A stored dataset row as originally uploaded."""
+
+    model_config = ConfigDict(from_attributes=True)
+
+    row_number: int
+    original_data: dict[str, Any]

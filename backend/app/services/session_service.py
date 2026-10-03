@@ -2,9 +2,9 @@
 
 import uuid
 from pathlib import Path
+from sqlalchemy import insert, select
 
 import pandas as pd
-from sqlalchemy import insert
 from sqlalchemy.orm import Session
 
 from backend.app.models import DatasetRecord, ProcessingSession
@@ -64,3 +64,16 @@ def create_session_from_upload(
 def get_session(db: Session, session_id: uuid.UUID) -> ProcessingSession | None:
     """Return a processing session by ID, or None if it does not exist."""
     return db.get(ProcessingSession, session_id)
+
+def get_session_records(
+    db: Session, session_id: uuid.UUID, limit: int = 20, offset: int = 0
+) -> list[DatasetRecord]:
+    """Return a page of records for a session, ordered by original row number."""
+    statement = (
+        select(DatasetRecord)
+        .where(DatasetRecord.session_id == session_id)
+        .order_by(DatasetRecord.row_number)
+        .limit(limit)
+        .offset(offset)
+    )
+    return list(db.scalars(statement))
