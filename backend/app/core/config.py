@@ -11,7 +11,8 @@ class Settings(BaseSettings):
     app_name: str = "Automated Data Cleaning & Quality Management System"
     app_env: str = "development"
 
-    database_url: str  
+    database_url: str 
+    test_database_url: str | None = None 
 
     api_base_url: str = "http://localhost:8000"
     max_upload_size_mb: int = 20

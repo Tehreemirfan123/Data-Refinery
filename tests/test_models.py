@@ -47,8 +47,12 @@ def test_deleting_session_deletes_its_records(db_session) -> None:
     session_obj.records.append(DatasetRecord(row_number=1, original_data={"a": 1}))
     db_session.add(session_obj)
     db_session.flush()
+    session_id = session_obj.id
 
     db_session.delete(session_obj)
     db_session.flush()
 
-    assert db_session.scalars(select(DatasetRecord)).all() == []
+    remaining = db_session.scalars(
+        select(DatasetRecord).where(DatasetRecord.session_id == session_id)
+    ).all()
+    assert remaining == []
