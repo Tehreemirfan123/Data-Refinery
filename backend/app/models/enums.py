@@ -15,9 +15,20 @@ class SessionStatus(str, Enum):
 
 
 class RecordStatus(str, Enum):
-    """Quality classification of a single record (Module 10)."""
+    """Quality classification of a single record."""
 
     VALID = "VALID"
     CORRECTED = "CORRECTED"
     REVIEW_REQUIRED = "REVIEW_REQUIRED"
     INVALID = "INVALID"
+    
+
+class FieldStatus(str, Enum):
+    """Outcome of cleaning a single field value."""
+
+    VALID = "VALID"                       # already correct, unchanged
+    CORRECTED = "CORRECTED"               # deterministically standardized
+    MISSING = "MISSING"                   # empty / blank
+    INVALID = "INVALID"                   # information lost or wrong; cannot be fixed
+    SUSPICIOUS = "SUSPICIOUS"             # well-formed but implausible
+    REVIEW_REQUIRED = "REVIEW_REQUIRED"   # plausible fix exists but needs a human decision
