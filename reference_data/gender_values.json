@@ -1,0 +1,20 @@
+{
+    "description": "Accepted spellings for each gender category. Keys are the standard labels.",
+    "values": {
+        "Male": [
+            "male",
+            "m",
+            "man",
+            "mard",
+            "مرد"
+        ],
+        "Female": [
+            "female",
+            "f",
+            "woman",
+            "aurat",
+            "عورت",
+            "خاتون"
+        ]
+    }
+}

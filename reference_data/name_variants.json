@@ -1,0 +1,29 @@
+{
+    "description": "Spelling variants mapped to one comparison form. Used ONLY to build match keys for duplicate detection; stored names are never changed.",
+    "variants": {
+        "muhammad": [
+            "mohammad",
+            "muhammed",
+            "mohammed",
+            "mohamed",
+            "mohd"
+        ],
+        "ahmed": [
+            "ahmad"
+        ],
+        "hussain": [
+            "hussein",
+            "husain"
+        ],
+        "ayesha": [
+            "aisha",
+            "aysha"
+        ],
+        "fatima": [
+            "fatma"
+        ],
+        "usman": [
+            "osman"
+        ]
+    }
+}
